@@ -1,5 +1,4 @@
 import requests
-
 import argparse
 
 API_KEY = '1adac4da3358b065670693ef3171d951'  # Asegúrate de reemplazar esto con tu clave de API de OpenWeatherMap
@@ -23,11 +22,15 @@ def get_weather(city, country, output_format):
         print(f"Error: Could not retrieve weather data for {city}, {country}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="Get the current weather information for a city.")
-    parser.add_argument('location', type=str, help="City and country (e.g., 'Asuncion,PY')")
+    parser = argparse.ArgumentParser(description="Get the current weather information for one or more cities.")
+    parser.add_argument('locations', type=str, help="City and country (e.g., 'Asuncion,PY' or 'Asuncion,PY;Montevideo,UY')")
     parser.add_argument('--format', type=str, default='text', choices=['text', 'json', 'csv'], help="Output format: text, json, csv")
     
     args = parser.parse_args()
-    city, country = args.location.split(',')
-
-    get_weather(city.strip(), country.strip(), args.format)
+    
+    # Separar múltiples ubicaciones por punto y coma (;)
+    locations = args.locations.split(';')
+    
+    for location in locations:
+        city, country = location.split(',')
+        get_weather(city.strip(), country.strip(), args.format)
