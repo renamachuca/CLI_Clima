@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Ejecutar flake8 para verificar el formato del código
+flake8 scripts/
+
+if [ $? -ne 0 ]; then
+    echo "La verificación de formato de código falló. Corrige los errores antes de hacer commit."
+    exit 1
+fi
+
+# Puedes agregar más verificaciones aquí, como pruebas unitarias
+
+exit 0 

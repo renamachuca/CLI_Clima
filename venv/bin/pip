@@ -1,4 +1,4 @@
-#!/home/penguin/Renato/clima/venv/bin/python3
+#!/home/penguin/Renato/CLI_Clima/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

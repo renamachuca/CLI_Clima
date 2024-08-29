@@ -1,6 +1,5 @@
 import requests
-import sys
-import os
+
 import argparse
 
 API_KEY = '1adac4da3358b065670693ef3171d951'  # Asegúrate de reemplazar esto con tu clave de API de OpenWeatherMap
@@ -25,7 +24,7 @@ def get_weather(city, country, output_format):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Get the current weather information for a city.")
-    parser.add_argument('location', type=str, help="City and country (e.g., 'London,UK')")
+    parser.add_argument('location', type=str, help="City and country (e.g., 'Asuncion,PY')")
     parser.add_argument('--format', type=str, default='text', choices=['text', 'json', 'csv'], help="Output format: text, json, csv")
     
     args = parser.parse_args()
